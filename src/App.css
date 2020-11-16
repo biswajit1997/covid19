@@ -37,19 +37,28 @@
   }
 }
 .confirmed {
-  color: #1c1c1c;
+  /* color: #1c1c1c; */
+  color: red;
+  border: 1px solid;
+  margin-top: 1px;
 }
 .recovered {
   color: #28a745;
+  border: 1px solid;
+  margin-top: 1px;
 }
 .active {
   color: #007bff;
+  border: 1px solid;
+  margin-top: 1px;
 }
 .deceased {
   color: #9a9a9a;
 }
 .deaths {
   color: #9a9a9a;
+  border: 1px solid;
+  margin-top: 1px;
 }
 .state .active {
   padding: 10px;
@@ -75,44 +84,58 @@
 }
 li {
   list-style: none;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   cursor: pointer;
   padding-bottom: 6px;
 }
 li:hover {
   background-color: #ddd;
+  color: #000;
 }
-.theme-red {
+/* .theme-red {
   border: 1px solid #000;
   margin: 2px;
   padding: 2px;
   background-color: red;
   color: #fff;
   cursor: pointer;
-}
+} */
 .theme-yellow {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   margin: 2px;
-  padding: 2px;
+  padding: 10px;
   background-color: yellow;
   color: #000;
   cursor: pointer;
 }
+.theme-yellow:hover {
+  background-color: #ddd;
+  color: #000;
+}
 .theme-white {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   margin: 2px;
-  padding: 2px;
+  padding: 10px;
   background-color: #fff;
   color: #000;
   cursor: pointer;
 }
+.theme-white:hover {
+  background-color: #ddd;
+}
 .theme-black {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   margin: 2px;
-  padding: 2px;
+  padding: 10px;
   background-color: #000;
   color: #fff;
   cursor: pointer;
+}
+.theme-black:hover {
+  background-color: #ddd;
+  color: #000;
 }
 .icon {
   font-size: x-large;
@@ -150,7 +173,15 @@ li:hover {
   width: 110px;
   height: 475px;
   overflow: scroll;
+  color: red;
 }
 /* td {
   color: #fff;
 } */
+/* .leftSideBar {
+  height: 450px;
+  overflow: scroll;
+} */
+.addconf {
+  color: #ddd;
+}
