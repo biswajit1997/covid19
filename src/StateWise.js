@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 import { Spinner } from "reactstrap";
 
-function StateWise() {
+function StateWise({ color: color }) {
   const [stateApi, setStateApi] = useState([]);
   useEffect(() => {
     axios
@@ -17,16 +17,18 @@ function StateWise() {
       });
   }, []);
   return (
-    <div className="table-responsive">
+    <div className="table-responsive set">
       {stateApi.Angul !== undefined ? (
         <table className="table table-bordered table-hover">
           <thead>
-            <th>Id</th>
-            <th>District Name</th>
-            <th>Active</th>
-            <th>Confirmed</th>
-            <th>Recovered</th>
-            <th>Deceased</th>
+            <tr style={{ color: color }}>
+              <th>Id</th>
+              <th>District Name</th>
+              <th>Active</th>
+              <th>Confirmed</th>
+              <th>Recovered</th>
+              <th>Deceased</th>
+            </tr>
           </thead>
           <tbody>
             <>

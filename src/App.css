@@ -37,7 +37,7 @@
   }
 }
 .confirmed {
-  color: red;
+  color: #1c1c1c;
 }
 .recovered {
   color: #28a745;
@@ -77,6 +77,7 @@ li {
   list-style: none;
   border: 1px solid #ddd;
   cursor: pointer;
+  padding-bottom: 6px;
 }
 li:hover {
   background-color: #ddd;
@@ -103,6 +104,14 @@ li:hover {
   padding: 2px;
   background-color: #fff;
   color: #000;
+  cursor: pointer;
+}
+.theme-black {
+  border: 1px solid #000;
+  margin: 2px;
+  padding: 2px;
+  background-color: #000;
+  color: #fff;
   cursor: pointer;
 }
 .icon {
@@ -137,3 +146,11 @@ li:hover {
     font-size: small;
   }
 }
+.set {
+  width: 110px;
+  height: 475px;
+  overflow: scroll;
+}
+/* td {
+  color: #fff;
+} */

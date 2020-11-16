@@ -9,11 +9,14 @@ import { BsPersonSquare, BsInfoCircle } from "react-icons/bs";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { GiStairsGoal } from "react-icons/gi";
 import { AiOutlineMinusCircle } from "react-icons/ai";
+import { GrMultimedia } from "react-icons/gr";
 
 function Dashboard() {
   const [distApi, setDistApi] = useState([]);
   const [totState, setTotState] = useState([]);
   const [backgroundColor, setBackgroundColor] = useState("white");
+  const [logoColor, setLogoColor] = useState("black");
+  const [textColor, setTextColor] = useState("black");
   let dat = distApi.state_meta_data;
   useEffect(() => {
     axios
@@ -38,12 +41,23 @@ function Dashboard() {
   }, []);
   const handleColorRed = () => {
     setBackgroundColor("red");
+    setLogoColor("white");
+    setTextColor("#fff");
   };
   const handleColorYellow = () => {
     setBackgroundColor("yellow");
+    setLogoColor("black");
+    setTextColor("black");
   };
   const handleColorWhite = () => {
     setBackgroundColor("white");
+    setLogoColor("black");
+    setTextColor("black");
+  };
+  const handleColorBlack = () => {
+    setBackgroundColor("#1c1c1c");
+    setLogoColor("white");
+    setTextColor("white");
   };
   return (
     <div className="App" style={{ backgroundColor: backgroundColor }}>
@@ -51,17 +65,26 @@ function Dashboard() {
         <div className="row">
           <div className="col-sm-2 shadow">
             <div>
-              <img
-                src="https://statedashboard.odisha.gov.in/public/website/img/logo.png"
-                alert=""
-              />
+              {logoColor === "black" ? (
+                <img
+                  src="https://statedashboard.odisha.gov.in/public/website/img/logo.png"
+                  alert=""
+                />
+              ) : (
+                <img
+                  src="https://statedashboard.odisha.gov.in/public/website/img/logowhite.png"
+                  alert=""
+                />
+              )}
               <div className="covid">COVID</div>
-              <div className="dash">
+              <div className="dash" style={{ color: textColor }}>
                 <b>DASHBOARD</b>
               </div>
-              <div className="govt">GOVT. OF ODISHA</div>
+              <div className="govt" style={{ color: textColor }}>
+                GOVT. OF ODISHA
+              </div>
             </div>
-            <div className="mt-2">
+            <div className="mt-2" style={{ color: textColor }}>
               <li>
                 <div class="icon">
                   <GoDashboard />
@@ -102,6 +125,12 @@ function Dashboard() {
                 </div>
                 Odisha Success Stories
               </li>
+              <li>
+                <div class="icon">
+                  <GrMultimedia />
+                </div>
+                Covid Portal
+              </li>
             </div>
           </div>
           <div className="col-sm-10">
@@ -115,10 +144,23 @@ function Dashboard() {
                     <div class="mb-2">Active</div>
                     {totState.active}
                   </div>
-                  <div className="confirmed col-3 shadow">
-                    <div class="mb-2">Confirmed</div>
-                    {totState.confirmed}
-                  </div>
+                  {textColor === "black" ? (
+                    <div
+                      className="confirmed col-3 shadow"
+                      style={{ color: "red" }}
+                    >
+                      <div class="mb-2">Confirmed</div>
+                      {totState.confirmed}
+                    </div>
+                  ) : (
+                    <div
+                      className="confirmed col-3 shadow"
+                      style={{ color: textColor }}
+                    >
+                      <div class="mb-2">Confirmed</div>
+                      {totState.confirmed}
+                    </div>
+                  )}
                   <div className="recovered col-3 shadow">
                     <div class="mb-2">Recovered</div>
                     {totState.recovered}
@@ -133,7 +175,7 @@ function Dashboard() {
               <Spinner color="success" />
             )}
             <div className=" col-sm-12 mb-4">
-              <StateWise />
+              <StateWise color={textColor} />
             </div>
             <div className="mb-3">
               Theme change:
@@ -145,6 +187,9 @@ function Dashboard() {
               </span>
               <span className="theme-white" onClick={handleColorWhite}>
                 white
+              </span>
+              <span className="theme-black" onClick={handleColorBlack}>
+                black
               </span>
             </div>
           </div>
