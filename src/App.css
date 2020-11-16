@@ -36,3 +36,104 @@
     transform: rotate(360deg);
   }
 }
+.confirmed {
+  color: red;
+}
+.recovered {
+  color: #28a745;
+}
+.active {
+  color: #007bff;
+}
+.deceased {
+  color: #9a9a9a;
+}
+.deaths {
+  color: #9a9a9a;
+}
+.state .active {
+  padding: 10px;
+}
+.state .confirmed {
+  padding: 10px;
+}
+.state .recovered {
+  padding: 10px;
+}
+.state .deaths {
+  padding: 10px;
+}
+.covid {
+  font-size: x-large;
+  color: red;
+}
+.govt {
+  font-size: small;
+}
+.dash {
+  font-size: large;
+}
+li {
+  list-style: none;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+li:hover {
+  background-color: #ddd;
+}
+.theme-red {
+  border: 1px solid #000;
+  margin: 2px;
+  padding: 2px;
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+}
+.theme-yellow {
+  border: 1px solid #000;
+  margin: 2px;
+  padding: 2px;
+  background-color: yellow;
+  color: #000;
+  cursor: pointer;
+}
+.theme-white {
+  border: 1px solid #000;
+  margin: 2px;
+  padding: 2px;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+.icon {
+  font-size: x-large;
+  margin-top: 5px;
+}
+.blink {
+  animation: blinkingText 1.2s infinite;
+}
+@keyframes blinkingText {
+  0% {
+    color: red;
+    background-color: red;
+    border-radius: 50%;
+    font-size: small;
+  }
+  49% {
+    color: red;
+    background-color: red;
+    border-radius: 50%;
+    font-size: small;
+  }
+  60% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: red;
+    border-radius: 50%;
+    font-size: small;
+  }
+}
