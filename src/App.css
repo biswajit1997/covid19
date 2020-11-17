@@ -149,13 +149,13 @@ li:hover {
     color: red;
     background-color: red;
     border-radius: 50%;
-    font-size: small;
+    font-size: 10px;
   }
   49% {
     color: red;
     background-color: red;
     border-radius: 50%;
-    font-size: small;
+    font-size: 10px;
   }
   60% {
     color: transparent;
@@ -166,7 +166,7 @@ li:hover {
   100% {
     color: red;
     border-radius: 50%;
-    font-size: small;
+    font-size: 10px;
   }
 }
 .set {
