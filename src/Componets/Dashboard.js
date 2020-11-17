@@ -7,9 +7,10 @@ import LeftSideBar from "./LeftSideBar";
 import Topbar from "./Topbar";
 import Theme from "./Theme";
 import { Pie } from "react-chartjs-2";
-import { HorizontalBar } from "react-chartjs-2";
-import { MDBContainer } from "mdbreact";
+// import { HorizontalBar } from "react-chartjs-2";
+// import { MDBContainer } from "mdbreact";
 import BarChart from "./BarChart";
+import { BsTypeH1 } from "react-icons/bs";
 
 function Dashboard() {
   const [india, setIndia] = useState();
@@ -31,12 +32,12 @@ function Dashboard() {
     },
   });
 
-  const [stateApi, setStateApi] = useState([]);
+  const [stateApi, setStateApi] = useState({});
   useEffect(() => {
     axios
       .get("https://api.covid19india.org/state_district_wise.json")
       .then(function (response) {
-        // console.log(response.data.Odisha.districtData);
+        console.log("setStateApi===", response.data.Odisha.districtData);
         setStateApi(response.data.Odisha.districtData);
       })
       .catch(function (error) {
@@ -45,6 +46,7 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
+    console.log(stateApi);
     axios
       .get(
         "https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true"
@@ -119,10 +121,9 @@ function Dashboard() {
             </div>
             <div className="col-sm-12 border mt-3">
               <div className="row">
-                {stateApi === undefined ? (
+                {Object.keys(stateApi).length === 0 ? (
                   <Spinner color="success" />
                 ) : (
-                  // <Spinner color="success" />
                   <BarChart stateApi={stateApi} />
                 )}
               </div>

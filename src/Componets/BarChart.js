@@ -3,8 +3,12 @@ import { HorizontalBar } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 
 function BarChart({ stateApi }) {
-  const [barChart, setBarChart] = useState({
-    dataHorizontal: {
+  console.log(stateApi);
+
+  let dataHorizontal = {};
+  if (Object.keys(stateApi).length > 0) {
+    console.log(stateApi);
+    dataHorizontal = {
       labels: [
         "Angul",
         "Balangir",
@@ -132,16 +136,19 @@ function BarChart({ stateApi }) {
           borderWidth: 1,
         },
       ],
-    },
-  });
+    };
+  } else {
+    console.log("hyyyyyyyyyyyy====");
+  }
 
   return (
     <>
       <MDBContainer>
-        <HorizontalBar
-          data={barChart.dataHorizontal}
-          options={{ responsive: true }}
-        />
+        {Object.keys(stateApi).length > 0 ? (
+          <HorizontalBar data={dataHorizontal} options={{ responsive: true }} />
+        ) : (
+          ""
+        )}
       </MDBContainer>
     </>
   );
